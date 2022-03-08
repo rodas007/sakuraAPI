@@ -1,0 +1,16 @@
+.gallery{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gallery figure{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.gallery figure img{
+    border: 3px solid black;
+}
