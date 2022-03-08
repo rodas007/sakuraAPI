@@ -14,24 +14,28 @@ const getCards = async () => {
 
 //Declaro la función que me pintará las cartas en el HTML
 const printCards = (cards) => {
-  gallery$$.innerHTML = "";
 
   cards.map((card) => {
     const figure$$ = document.createElement("figure"); //Creo nodos de figure donde van a ir los 3 elementos de información
     //Creo los nodos de los tres elementos que quiero en mi figure:
     const titulo$$ = document.createElement("h2");
+    const tituloJap$$ = document.createElement("h3");
     const image$$ = document.createElement("img");
     const description$$ = document.createElement("p");
 
     //Les doy la información con la que quiero que se me completen:
-    titulo$$.textContent = card.spanishName;
-    image$$.src = card.sakuraCard;
-    image$$.alt = card.spanishName;
-    description$$.textContent = card.meaning;
+    titulo$$.textContent = card.spanishName; //Le añado el contenido al titulo con el valor de la API
+    tituloJap$$.textContent = card.kanji;
+    image$$.src = card.sakuraCard;//Le añado el contenido al src de la imagen con el valor de la API
+    image$$.alt = card.spanishName; //Le añado el contenido al alt de la imagen con el valor de la API
+    description$$.textContent = card.meaning; //Le añado el contenido a la p con el valor de la API
 
+    //Inyecto en el figure los tres elementos
     figure$$.appendChild(titulo$$);
+    figure$$.appendChild(tituloJap$$);
     figure$$.appendChild(image$$);
     figure$$.appendChild(description$$)
+    //Añado los figure a mi galeria
     gallery$$.appendChild(figure$$)
 
   });
